@@ -15,17 +15,16 @@ public class Hot543 {
 
     int res = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null))
-            return 0;
-        dfs(root);
-        return res;
+        maxDepth(root);
+        return res - 1; // 由最大深度可得最大直径必为res - 1
     }
-    private int dfs(TreeNode node){
+    // 如果仅有一个节点，且不为NULL，则该节点深度为1
+    private int maxDepth(TreeNode node){
         if (node == null)
             return 0;
-        int left = dfs(node.left);
-        int right = dfs(node.right);
-        res = Math.max(res, left + right);
+        int left = maxDepth(node.left);
+        int right = maxDepth(node.right);
+        res = Math.max(res, left + right + 1);
         return Math.max(left, right) + 1;
     }
 }

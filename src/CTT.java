@@ -468,5 +468,114 @@ public class CTT {
         }
         return res;
     }
+    // 任务调度器
+    public int leastInterval(char[] tasks, int n) {
+        if (tasks.length < 2 || n < 1) return tasks.length;
+        int[] tt = new int[26];
+        for (char c: tasks)
+            tt[c - 'A'] ++;
+        Arrays.sort(tt);
+        int max = tt[25];
+        int res = (max - 1) * (n + 1) + 1;
+        int i = 24;
+        while (i >= 0 && tt[i] == max){
+            res ++;
+            i--;
+        }
+        return Math.max(res, tasks.length);
+    }
 
+    // 回文字串个数
+    public int countSubstrings(String s) {
+        int ans = 0;
+        for (int i = 0; i < s.length(); i ++){
+            ans += spread(s, i, i);
+            ans += spread(s, i, i + 1);
+        }
+        return ans;
+    }
+    private int spread(String s, int l, int r){
+        int ans = 0;
+        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)){
+            ans ++;
+            l --;
+            r ++;
+        }
+        return ans;
+    }
+
+    // 每日温度
+    public int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
+        int[] res = new int[n];
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < n; i ++){
+            int tp = temperatures[i];
+            while (!stack.isEmpty() && tp > temperatures[stack.peek()]){
+                int prev = stack.pop();
+                res[prev] = i - prev;
+            }
+            stack.push(i);
+        }
+        return res;
+    }
+    // addTowNum
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode l3 = new ListNode(-1);
+        ListNode l4 = l3;
+        int carry = 0;
+        while (l1 != null || l2 != null){
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
+            int sum = x + y + carry;
+
+            carry = sum / 10;
+            sum = sum % 10;
+            l4.next = new ListNode(sum);
+            l4 = l4.next;
+
+            if (l1 != null)
+                l1 = l1.next;
+            if (l2 != null)
+                l2 = l2.next;
+        }
+        if (carry > 0)
+            l4.next = new ListNode(carry);
+        return l3.next;
+    }
+    // 最大无重复字串长度
+    public int lengthOfLongestSubstring(String s) {
+        int rk = -1, maxL = 0;
+        HashSet<Character> set = new HashSet<>();
+        for (int i = 0; i < s.length(); i ++){
+            if (i != 0)
+                set.remove(s.charAt(i - 1));
+            while (rk + 1 < s.length() && !set.contains(s.charAt(rk + 1))){
+                set.add(s.charAt(rk + 1));
+                rk ++;
+            }
+            maxL = Math.max(maxL, rk - i + 1);
+        }
+        return maxL;
+    }
+    // merge
+    public void merge(int[] arr, int l, int mid, int r){
+        int[] temp = Arrays.copyOfRange(arr, l, r + 1);
+        int i = l, j = mid + 1;
+        for (int k = l; k <= r; k ++){
+            if (i > mid){
+                arr[k] = temp[j - l];
+                j ++;
+            } else if (j > r){
+                arr[k] = temp[i - l];
+                i ++;
+            } else if (temp[i - l] <= temp[j - l]){
+                    arr[k] = temp[i - l];
+                    i ++;
+            } else{
+                    arr[k] = temp[j - l];
+                    j ++;
+            }
+        }
+    }
 }
