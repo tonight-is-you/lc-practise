@@ -1,3 +1,5 @@
+import sun.awt.image.ImageWatched;
+
 import java.util.*;
 import java.util.LinkedList;
 
@@ -597,5 +599,71 @@ public class CTT {
                 index2 = newIndex2 + 1;
             }
         }
+    }
+
+    public void nextPermutation(int[] nums) {
+        int n = nums.length;
+        int k = n - 1;
+        while (k - 1 >= 0 && nums[k - 1] >= nums[k]) k --;
+        if (k == 0)
+            reverse(nums, k, n - 1);
+        else{
+            int u = k;
+            while (u + 1 < n && nums[u + 1] > nums[k - 1]) u ++;
+            swap2(nums, u, k - 1);
+            reverse(nums, k, n - 1);
+        }
+    }
+    private void reverse(int[] arr, int l, int r){
+        while (l < r){
+            swap2(arr, l, r);
+            l ++;
+            r --;
+        }
+    }
+    private void swap2(int[] arr, int i, int j){
+        int t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+
+    public int maxLen(String s){
+        if (s == null || s.length() == 0)
+            return 0;
+        int res = 0;
+        Deque<Integer> stack = new LinkedList<>();
+        stack.push(-1);
+        for (int i = 0; i < s.length(); i ++){
+            if (s.charAt(i) == '(')
+                stack.push(i);
+            else{
+                stack.pop();
+                if (stack.isEmpty()) stack.push(i);
+                else{
+                    res = Math.max(res, i - stack.peek());
+                }
+            }
+        }
+        return res;
+    }
+
+    public int search(int[] nums, int target){
+        int lo = 0, hi = nums.length - 1, mid = 0;
+        while (lo <= hi){
+            mid = lo + (hi - lo) / 2;
+            if (nums[mid] == target) return mid;
+            if (nums[mid] >= nums[lo]){
+                if (target >= nums[lo] && target < nums[mid])
+                    hi = mid - 1;
+                else
+                    lo = mid + 1;
+            } else{
+                if (target > nums[mid] && target <= nums[hi])
+                    lo = mid + 1;
+                else
+                    hi = mid - 1;
+            }
+        }
+        return -1;
     }
 }
