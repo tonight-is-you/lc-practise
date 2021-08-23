@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// 三数之和，排序+双指针
+// 三数之和为零，排序+双指针
 public class Hot15 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
@@ -18,8 +18,8 @@ public class Hot15 {
                     List<Integer> list = new ArrayList<>(Arrays.asList(nums[i], nums[l], nums[r]));
                     lists.add(list);
 
-                    while (l < r && nums[l] == nums[l+1]) l++;
-                    while (l < r && nums[r] == nums[r -1]) r--;
+                    while (l < r && nums[l] == nums[l + 1]) l++;
+                    while (l < r && nums[r] == nums[r - 1]) r--;
                     l ++;
                     r --;
                 }
