@@ -5,7 +5,7 @@ import java.util.List;
 public class Hot46 {
     List<List<Integer>> res = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
-        if (nums.length == 0 || nums == null) return res;
+        if (nums == null || nums.length == 0) return res;
         int n = nums.length;
         List<Integer> ls = new ArrayList<>();
         dfs(nums, ls, n);
