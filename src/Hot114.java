@@ -15,23 +15,22 @@ public class Hot114 {
             this.right = right;
         }
     }
-    
+
     public void flatten(TreeNode root) {
         List<TreeNode> list = new ArrayList<>();
-        preOrder(root, list);
-        // 核心代码
+        preorder(root, list);
         for (int i = 1; i < list.size(); i ++){
-            TreeNode pre = list.get(i - 1), cur = list.get(i);
-            pre.left = null;
-            pre.right = cur;
+            root = list.get(i - 1);
+            TreeNode cur = list.get(i);
+            root.left = null;
+            root.right = cur;
         }
     }
-
-    private void preOrder(TreeNode root, List<TreeNode> ls){
+    private void preorder(TreeNode root, List<TreeNode> ls){
         if (root == null)
             return;
         ls.add(root);
-        preOrder(root.left, ls);
-        preOrder(root.right, ls);
+        preorder(root.left, ls);
+        preorder(root.right, ls);
     }
 }

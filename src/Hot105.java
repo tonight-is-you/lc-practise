@@ -23,10 +23,11 @@ public class Hot105 {
         return build(preorder, inorder, 0, n - 1, 0, n - 1);
     }
     private TreeNode build(int[] preOrder, int[] inOrder, int preLeft, int preRight, int inLeft, int inRight){
-        int preRootIndex = preLeft;
-        int inRootIndex = indexMap.get(inOrder[preRootIndex]);
+        if (preLeft > preRight)
+            return null;
+        int inRootIndex = indexMap.get(preOrder[preLeft]);
         int subLeftNum = inRootIndex - inLeft;
-        TreeNode root = new TreeNode(preOrder[preRootIndex]);
+        TreeNode root = new TreeNode(preOrder[preLeft]);
         root.left = build(preOrder, inOrder, preLeft + 1, preLeft + subLeftNum, inLeft, inRootIndex - 1);
         root.right = build(preOrder, inOrder, preLeft + subLeftNum + 1, preRight, inRootIndex + 1, inRight);
         return root;

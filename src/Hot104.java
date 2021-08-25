@@ -16,11 +16,9 @@ public class Hot104 {
     public int maxDepth(TreeNode root){
         if (root == null)
             return 0;
-        else {
-            int left = maxDepth(root.left);
-            int right = maxDepth(root.right);
-            return Math.max(left, right) + 1;
-        }
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return Math.max(left, right) + 1;
     }
 
     // 层序遍历
@@ -33,7 +31,7 @@ public class Hot104 {
         while (!q.isEmpty()){
             int sz = q.size();
             while (sz > 0){
-                TreeNode cur = q.pop();
+                TreeNode cur = q.poll();
                 if (cur.left != null)
                     q.offer(cur.left);
                 if (cur.right != null)
