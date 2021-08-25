@@ -13,7 +13,7 @@ public class Hot78 {
         return res;
     }
     private void dfs(int start, int[] nums, List<Integer> ls, int n){
-        res.add(ls);
+        res.add(new ArrayList<>(ls));
         for (int i = start; i < n; i ++){
             ls.add(nums[i]);
             dfs(i + 1, nums, ls, n);

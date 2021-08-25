@@ -11,7 +11,7 @@ public class Hot56 {
             int L = interval[0];
             int R = interval[1];
             if (merged.size() == 0 || merged.get(merged.size() - 1)[1] < L)
-                merged.add(new int[]{L, R});
+                merged.add(interval);
             else{
                 merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], R);
             }

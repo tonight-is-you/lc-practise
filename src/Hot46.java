@@ -17,6 +17,8 @@ public class Hot46 {
             return;
         }
         for (int i = 0; i < n; i ++){
+            if (tmp.contains(nums[i]))
+                continue;
             tmp.add(nums[i]);
             dfs(nums, tmp, n);
             tmp.remove(tmp.size() - 1);
