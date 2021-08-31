@@ -1,6 +1,6 @@
 // 寻找重复数, 不修改数组 nums 且只用常量级 O(1) 的额外空间
 public class Hot287 {
-    // 快慢指针，判断是否有环
+    // 快慢指针，判断是否有环，并找到环入口
     public int findDuplicate(int[] nums) {
         int slow = 0;
         int fast = 0;

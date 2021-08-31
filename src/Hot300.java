@@ -5,6 +5,7 @@ public class Hot300 {
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0)
             return 0;
+        // 定义 dp[i] 为考虑前 i 个元素，以第 i 个数字结尾的最长上升子序列的长度
         int[] dp = new int[nums.length];
         Arrays.fill(dp, 1); // 每个元素都至少可以单独成为子序列
         int maxL = 1;

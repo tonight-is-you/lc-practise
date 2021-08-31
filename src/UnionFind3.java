@@ -10,6 +10,7 @@ public class UnionFind3 implements UF{
             rank[i] = 1;
         }
     }
+
     @Override
     public int getSize(){
         return parent.length;
@@ -27,10 +28,12 @@ public class UnionFind3 implements UF{
             parent[p] = find(parent[p]);
         return parent[p];
     }
+
     @Override
     public boolean isConnected(int p, int q){
         return find(p) == find(q);
     }
+
     // O(h)时间复杂度，h为树的高度
     @Override
     public void unionElements(int p, int q){

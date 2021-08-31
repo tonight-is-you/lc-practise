@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 // 反转链表
 public class Hot206 {
     private class ListNode {

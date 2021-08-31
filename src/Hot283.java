@@ -1,13 +1,12 @@
 // 移动零
 public class Hot283 {
     public void moveZeroes(int[] nums) {
-        int left = 0, right = 0, len = nums.length;
-        while (right < len){
-            if (nums[right] != 0){
-                swap(nums, left, right);
-                left ++;
+        int j = 0;
+        for (int i = 0; i < nums.length; i ++){
+            if (nums[i] != 0){
+                swap(nums, j, i);
+                j ++;
             }
-            right ++;
         }
     }
 
