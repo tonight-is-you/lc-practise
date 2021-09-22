@@ -20,10 +20,10 @@ public class Hot114 {
         List<TreeNode> list = new ArrayList<>();
         preorder(root, list);
         for (int i = 1; i < list.size(); i ++){
-            root = list.get(i - 1);
+            TreeNode prev = list.get(i - 1);
             TreeNode cur = list.get(i);
-            root.left = null;
-            root.right = cur;
+            prev.left = null;
+            prev.right = cur;
         }
     }
     private void preorder(TreeNode root, List<TreeNode> ls){

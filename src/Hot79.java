@@ -15,7 +15,7 @@ public class Hot79 {
         visited = new boolean[row][col];
         wordChar = word.toCharArray();
         for (int i = 0; i < row; i ++){
-            for (int j = 0; i < col; j ++){
+            for (int j = 0; j < col; j ++){
                 if (dfs(i, j, 0))
                     return true;
             }

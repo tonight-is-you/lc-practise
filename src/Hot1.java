@@ -12,5 +12,4 @@ public class Hot1 {
         }
         return new int[]{};
     }
-
 }

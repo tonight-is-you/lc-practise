@@ -1,7 +1,7 @@
 import java.util.Deque;
 import java.util.LinkedList;
 
-// 对称二叉树
+// 验证对称二叉树
 public class Hot101 {
     private class TreeNode {
         int val;
@@ -34,7 +34,7 @@ public class Hot101 {
 
     // 迭代法
     public boolean isSymmetric2(TreeNode root) {
-        if (root == null || root.left == null && root.right == null)
+        if (root == null || (root.left == null && root.right == null))
             return true;
         Deque<TreeNode> queue = new LinkedList<>();
         queue.offer(root.left);
