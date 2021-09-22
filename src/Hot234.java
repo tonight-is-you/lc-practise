@@ -1,4 +1,4 @@
-// 回文链表
+// 回文链表判断
 public class Hot234 {
     private class ListNode {
       int val;

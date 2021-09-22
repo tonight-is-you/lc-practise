@@ -1,4 +1,4 @@
-// 最长回文字串
+// 最长回文子串
 public class Hot5 {
     public String longestPalindrome(String s) {
         int len = s.length();
@@ -9,8 +9,8 @@ public class Hot5 {
         char[] cc = s.toCharArray();
         int begin = 0;
         int maxL = 1;
-        for (int L = 2; L <= len; L ++){ // 遍历每个Len
-            for (int i = 0; i < len - 1; i ++){ // i 总是从0开始，len-2结束，由于L是从2开始的，所有i取不到len-1，或者说取到了也没有意义
+        for (int L = 2; L <= len; L ++){ // 遍历每个Len，i表示子串的左边界
+            for (int i = 0; i <= len - 2; i ++){ // i 总是从0开始，len-2结束，由于L是从2开始的，所有i取不到len-1，或者说取到了也没有意义
                 int j = i + L - 1; // 右指针
                 if (j >= len)
                     break;
