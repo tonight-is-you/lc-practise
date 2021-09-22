@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-// 无重复字符的最长子串，滑动窗口
+// 无重复字符的最长子串长度，滑动窗口
 public class Hot3 {
     public int lengthOfLongestSubstring(String s) {
         int res = 0, rk = -1;

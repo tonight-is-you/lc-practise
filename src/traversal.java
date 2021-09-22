@@ -76,7 +76,7 @@ public class traversal {
             p入S;
             p = p的左子树;
         }
-        p = S.top 出栈;
+        p = S.pop 出栈;
         访问p;
         p = p的右子树;
     }
