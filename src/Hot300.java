@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 // 最长递增子序列
 public class Hot300 {
+    // 时间复杂度太高，面试中可能会被pass
     public int lengthOfLIS(int[] nums) {
         if (nums.length == 0)
             return 0;
@@ -19,6 +20,7 @@ public class Hot300 {
         return maxL;
     }
 
+    // nlogn
     public static int lengthOfLIS2(int[] nums) {
         int len = nums.length;
         if (len <= 1) {

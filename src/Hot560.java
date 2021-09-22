@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-// 和为K的子数组
+// 和为K的子数组的数量
 public class Hot560 {
     public int subarraySum(int[] nums, int k) {
         int cnt = 0, pre = 0;

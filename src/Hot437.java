@@ -13,7 +13,7 @@ public class Hot437 {
           this.val = val;
           this.left = left;
           this.right = right;
-        }
+      }
     }
 
     public int pathSum(TreeNode root, int targetSum) {
