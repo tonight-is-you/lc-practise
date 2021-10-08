@@ -1,4 +1,4 @@
-//  回文子串
+//  求回文子串个数
 public class Hot647 {
     // 扩展中心法
     public int countSubstrings(String s) {
